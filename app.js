@@ -3,9 +3,13 @@ require('dotenv').config();
 const express = require('express');
 const expressLayout = require('express-ejs-layouts');
 
+const connectDB = require('./server/config/db');
 const app = express();
 // use localhost when developing and process in production
 const PORT = 3000 || process.env.PORT;
+
+// Connect to DB
+connectDB();
 
 // This is for the css part
 app.use(express.static('public'));
